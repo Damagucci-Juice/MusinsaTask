@@ -9,28 +9,27 @@ import Foundation
 import TinyNetworking
 import os.log
 
+
+
 protocol DisplayRepository {
     func requestSections()
     
-    var onUpdate: () -> Void { get set }
+    var onUpdate: ([Datum]) -> Void { get set }
 }
 
 final class DisplayRepositoryImplement: DisplayRepository {
     
+    var onUpdate: ([Datum]) -> Void = { _ in }
+    private var entry: [Datum] = Array<Datum>(repeating: Datum(), count: 4)
+    
     private let provider = TinyNetworking<MusinsaTarget>()
-    
-    var onUpdate: () -> Void = { }
-    
     private var sections: Section? {
         didSet {
             self.distributeDatum()
-            self.onUpdate()
+            self.onUpdate(self.entry)
         }
     }
-    private(set) var bannerSection: Datum?
-    private(set) var girdSection: Datum?
-    private(set) var scrollSection: Datum?
-    private(set) var stylesSection: Datum?
+    
     
     init() {
         self.requestSections()
@@ -38,20 +37,19 @@ final class DisplayRepositoryImplement: DisplayRepository {
     
     private func distributeDatum() {
         guard let sections = sections else {
-//            os_log("%@", log: .default, type: .error, )
             os_log(.default, "%@", "\(#file) sections is nil")
             return
         }
         sections.data.forEach {
             switch $0.contents.type {
             case "BANNER":
-                self.bannerSection = $0
+                self.entry[0] = $0
             case "GRID":
-                self.girdSection = $0
+                self.entry[1] = $0
             case "SCROLL":
-                self.scrollSection = $0
+                self.entry[2] = $0
             case "STYLE":
-                self.stylesSection = $0
+                self.entry[3] = $0
             default:
                 break
             }

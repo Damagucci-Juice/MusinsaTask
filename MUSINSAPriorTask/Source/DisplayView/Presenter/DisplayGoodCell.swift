@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import SnapKit
 
-final class DisplayCell: UICollectionViewCell {
+final class DisplayGoodCell: UICollectionViewCell {
     
     var item: Good?
     // MARK: - UI
@@ -130,7 +130,7 @@ final class DisplayCell: UICollectionViewCell {
     
 }
 
-extension DisplayCell: InformationProtocol {
+extension DisplayGoodCell: Informable {
 
     typealias Item = Good
     

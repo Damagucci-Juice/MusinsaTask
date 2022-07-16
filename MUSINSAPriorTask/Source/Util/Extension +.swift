@@ -7,19 +7,19 @@
 
 import UIKit
 
-protocol InformationProtocol {
+
+//typealias Sections = [Datum]
+
+protocol Informable {
     associatedtype Item: Displayable
     func setUpInformations(_ product: Item)
     func loadImage(_ urlString: String)
 }
-
-//let linkURL: String
-//let thumbnailURL: String
 
 protocol Displayable {
 
 }
 
 extension UICollectionReusableView {
-    static var reuseIdentifier: String { String(describing: Self.self)}
+    static var reuseIdentifier: String { String(describing: Self.self) }
 }

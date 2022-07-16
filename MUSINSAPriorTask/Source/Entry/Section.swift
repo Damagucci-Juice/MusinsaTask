@@ -17,6 +17,12 @@ struct Datum: Codable {
     let contents: Contents
     let header: Header?
     let footer: Footer?
+    
+    init() {
+        self.contents = Contents(type: "samle", banners: nil, goods: nil, styles: nil)
+        self.header = nil
+        self.footer = nil
+    }
 }
 
 // MARK: - Contents
@@ -73,4 +79,23 @@ struct Header: Codable {
     let title: String
     let iconURL: String?
     let linkURL: String?
+}
+
+enum SectionType {
+    case banner, grid, scroll, style
+    
+    static func convert(_ section: Int) -> Self? {
+        switch section {
+        case 0:
+            return .banner
+        case 1:
+            return .grid
+        case 2:
+            return .scroll
+        case 3:
+            return .style
+        default:
+            return nil
+        }
+    }
 }

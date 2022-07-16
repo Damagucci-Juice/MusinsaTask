@@ -11,12 +11,16 @@ import SnapKit
 final class DisplayViewController: UIViewController {
     
     var repository: DisplayRepository = DisplayRepositoryImplement()
+    var datasource: DisplayDatasource = DisplayDatasource()
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(DisplayCell.self, forCellWithReuseIdentifier: DisplayCell.reuseIdentifier)
+        collectionView.register(DisplayGoodCell.self,
+                                forCellWithReuseIdentifier: DisplayGoodCell.reuseIdentifier)
+        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseIdentifier)
+        collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.reuseIdentifier)
         collectionView.backgroundColor = .systemGray6
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -32,7 +36,6 @@ final class DisplayViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
-        
     }
     
     
@@ -42,7 +45,7 @@ final class DisplayViewController: UIViewController {
     }
     
     private func attribute() {
-        collectionView.dataSource = self
+        collectionView.dataSource = self.datasource
         collectionView.delegate = self
     }
     
@@ -53,54 +56,20 @@ final class DisplayViewController: UIViewController {
     }
     
     func bind() {
-        repository.onUpdate = { [unowned self] in
+        repository.onUpdate = { [unowned self] sections in
+            self.datasource.updateModel(sections)
             self.collectionView.reloadData()
         }
     }
 }
 
-extension DisplayViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = (repository as? DisplayRepositoryImplement)?.girdSection?.contents.goods?.count else { return 0 }
-        return count
+extension DisplayViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        return 
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath)
-    -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: DisplayCell.reuseIdentifier,
-            for: indexPath) as? DisplayCell,
-              // TODO:  - 디미터 법칙 위반
-              let item = (repository as? DisplayRepositoryImplement)?
-                .girdSection?
-                .contents
-                .goods?[indexPath.row]
-        else { return UICollectionViewCell() }
-        
-        cell.setUpInformations(item)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: Int = Int((self.collectionView.frame.width - 6) / 3)
-        let height: Int = 180
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
-        guard let urlString = (repository as? DisplayRepositoryImplement)?
-                .girdSection?
-                .contents
-                .goods?[indexPath.row]
-                .linkURL,
-              let url = URL(string: urlString)
-        else { return }
-        
-        UIApplication.shared.open(url)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = UIScreen.main.bounds.width
+        return CGSize(width: width, height: width)
     }
 }

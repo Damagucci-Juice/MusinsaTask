@@ -16,7 +16,14 @@
 		007F3A29287E624200EE6B6C /* MUSINSAPriorTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F3A28287E624200EE6B6C /* MUSINSAPriorTaskUITestsLaunchTests.swift */; };
 		007F3A3E287E6CE900EE6B6C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 007F3A3D287E6CE900EE6B6C /* Kingfisher */; };
 		007F3A41287E6D3600EE6B6C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 007F3A40287E6D3600EE6B6C /* SnapKit */; };
-		007F3A44287E7ABF00EE6B6C /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 007F3A43287E7ABF00EE6B6C /* TinyNetworking */; };
+		007F3A47287E86D900EE6B6C /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 007F3A46287E86D900EE6B6C /* TinyNetworking */; };
+		007F3A49287E938100EE6B6C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F3A48287E938100EE6B6C /* Section.swift */; };
+		007F3A4B287E948000EE6B6C /* MusinsaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F3A4A287E948000EE6B6C /* MusinsaTarget.swift */; };
+		007F3A6A287FB35C00EE6B6C /* EndToEndNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F3A69287FB35C00EE6B6C /* EndToEndNetworkTest.swift */; };
+		007F3A74287FE2D300EE6B6C /* DisplayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F3A73287FE2D300EE6B6C /* DisplayRepository.swift */; };
+		00EDDCBB2881392C007421AC /* DisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDDCBA2881392C007421AC /* DisplayCell.swift */; };
+		00EDDCBD28815B32007421AC /* Extension +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDDCBC28815B32007421AC /* Extension +.swift */; };
+		00EDDCBF28818477007421AC /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EDDCBE28818477007421AC /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +35,13 @@
 			remoteInfo = MUSINSAPriorTask;
 		};
 		007F3A23287E624200EE6B6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 007F39FA287E624100EE6B6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 007F3A01287E624100EE6B6C;
+			remoteInfo = MUSINSAPriorTask;
+		};
+		007F3A6B287FB35C00EE6B6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 007F39FA287E624100EE6B6C /* Project object */;
 			proxyType = 1;
@@ -48,6 +62,14 @@
 		007F3A22287E624200EE6B6C /* MUSINSAPriorTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUSINSAPriorTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007F3A26287E624200EE6B6C /* MUSINSAPriorTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSINSAPriorTaskUITests.swift; sourceTree = "<group>"; };
 		007F3A28287E624200EE6B6C /* MUSINSAPriorTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSINSAPriorTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		007F3A48287E938100EE6B6C /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		007F3A4A287E948000EE6B6C /* MusinsaTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusinsaTarget.swift; sourceTree = "<group>"; };
+		007F3A67287FB35C00EE6B6C /* EndToEndNetworkTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndToEndNetworkTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		007F3A69287FB35C00EE6B6C /* EndToEndNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndToEndNetworkTest.swift; sourceTree = "<group>"; };
+		007F3A73287FE2D300EE6B6C /* DisplayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRepository.swift; sourceTree = "<group>"; };
+		00EDDCBA2881392C007421AC /* DisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCell.swift; sourceTree = "<group>"; };
+		00EDDCBC28815B32007421AC /* Extension +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension +.swift"; sourceTree = "<group>"; };
+		00EDDCBE28818477007421AC /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +79,7 @@
 			files = (
 				007F3A3E287E6CE900EE6B6C /* Kingfisher in Frameworks */,
 				007F3A41287E6D3600EE6B6C /* SnapKit in Frameworks */,
-				007F3A44287E7ABF00EE6B6C /* TinyNetworking in Frameworks */,
+				007F3A47287E86D900EE6B6C /* TinyNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +97,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		007F3A64287FB35C00EE6B6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +113,7 @@
 				007F3A04287E624100EE6B6C /* MUSINSAPriorTask */,
 				007F3A1B287E624200EE6B6C /* MUSINSAPriorTaskTests */,
 				007F3A25287E624200EE6B6C /* MUSINSAPriorTaskUITests */,
+				007F3A68287FB35C00EE6B6C /* EndToEndNetworkTest */,
 				007F3A03287E624100EE6B6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +124,7 @@
 				007F3A02287E624100EE6B6C /* MUSINSAPriorTask.app */,
 				007F3A18287E624200EE6B6C /* MUSINSAPriorTaskTests.xctest */,
 				007F3A22287E624200EE6B6C /* MUSINSAPriorTaskUITests.xctest */,
+				007F3A67287FB35C00EE6B6C /* EndToEndNetworkTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +169,7 @@
 		007F3A36287E68F900EE6B6C /* Entry */ = {
 			isa = PBXGroup;
 			children = (
+				007F3A48287E938100EE6B6C /* Section.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -148,6 +180,8 @@
 				007F3A05287E624100EE6B6C /* AppDelegate.swift */,
 				007F3A07287E624100EE6B6C /* SceneDelegate.swift */,
 				007F3A0E287E624200EE6B6C /* Assets.xcassets */,
+				00EDDCBE28818477007421AC /* PaddingLabel.swift */,
+				00EDDCBC28815B32007421AC /* Extension +.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -155,6 +189,7 @@
 		007F3A38287E68FD00EE6B6C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				007F3A4A287E948000EE6B6C /* MusinsaTarget.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -171,6 +206,7 @@
 		007F3A3A287E696500EE6B6C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				007F3A73287FE2D300EE6B6C /* DisplayRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -179,8 +215,17 @@
 			isa = PBXGroup;
 			children = (
 				007F3A09287E624100EE6B6C /* DisplayViewController.swift */,
+				00EDDCBA2881392C007421AC /* DisplayCell.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		007F3A68287FB35C00EE6B6C /* EndToEndNetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				007F3A69287FB35C00EE6B6C /* EndToEndNetworkTest.swift */,
+			);
+			path = EndToEndNetworkTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +247,7 @@
 			packageProductDependencies = (
 				007F3A3D287E6CE900EE6B6C /* Kingfisher */,
 				007F3A40287E6D3600EE6B6C /* SnapKit */,
-				007F3A43287E7ABF00EE6B6C /* TinyNetworking */,
+				007F3A46287E86D900EE6B6C /* TinyNetworking */,
 			);
 			productName = MUSINSAPriorTask;
 			productReference = 007F3A02287E624100EE6B6C /* MUSINSAPriorTask.app */;
@@ -244,6 +289,24 @@
 			productReference = 007F3A22287E624200EE6B6C /* MUSINSAPriorTaskUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		007F3A66287FB35C00EE6B6C /* EndToEndNetworkTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 007F3A6D287FB35C00EE6B6C /* Build configuration list for PBXNativeTarget "EndToEndNetworkTest" */;
+			buildPhases = (
+				007F3A63287FB35C00EE6B6C /* Sources */,
+				007F3A64287FB35C00EE6B6C /* Frameworks */,
+				007F3A65287FB35C00EE6B6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				007F3A6C287FB35C00EE6B6C /* PBXTargetDependency */,
+			);
+			name = EndToEndNetworkTest;
+			productName = EndToEndNetworkTest;
+			productReference = 007F3A67287FB35C00EE6B6C /* EndToEndNetworkTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,6 +328,10 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 007F3A01287E624100EE6B6C;
 					};
+					007F3A66287FB35C00EE6B6C = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 007F3A01287E624100EE6B6C;
+					};
 				};
 			};
 			buildConfigurationList = 007F39FD287E624100EE6B6C /* Build configuration list for PBXProject "MUSINSAPriorTask" */;
@@ -279,7 +346,7 @@
 			packageReferences = (
 				007F3A3C287E6CE900EE6B6C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				007F3A3F287E6D3600EE6B6C /* XCRemoteSwiftPackageReference "SnapKit" */,
-				007F3A42287E7ABF00EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */,
+				007F3A45287E86D900EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */,
 			);
 			productRefGroup = 007F3A03287E624100EE6B6C /* Products */;
 			projectDirPath = "";
@@ -288,6 +355,7 @@
 				007F3A01287E624100EE6B6C /* MUSINSAPriorTask */,
 				007F3A17287E624200EE6B6C /* MUSINSAPriorTaskTests */,
 				007F3A21287E624200EE6B6C /* MUSINSAPriorTaskUITests */,
+				007F3A66287FB35C00EE6B6C /* EndToEndNetworkTest */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +383,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		007F3A65287FB35C00EE6B6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,7 +397,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007F3A74287FE2D300EE6B6C /* DisplayRepository.swift in Sources */,
 				007F3A0A287E624100EE6B6C /* DisplayViewController.swift in Sources */,
+				007F3A49287E938100EE6B6C /* Section.swift in Sources */,
+				007F3A4B287E948000EE6B6C /* MusinsaTarget.swift in Sources */,
+				00EDDCBD28815B32007421AC /* Extension +.swift in Sources */,
+				00EDDCBB2881392C007421AC /* DisplayCell.swift in Sources */,
+				00EDDCBF28818477007421AC /* PaddingLabel.swift in Sources */,
 				007F3A06287E624100EE6B6C /* AppDelegate.swift in Sources */,
 				007F3A08287E624100EE6B6C /* SceneDelegate.swift in Sources */,
 			);
@@ -345,6 +426,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		007F3A63287FB35C00EE6B6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				007F3A6A287FB35C00EE6B6C /* EndToEndNetworkTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -357,6 +446,11 @@
 			isa = PBXTargetDependency;
 			target = 007F3A01287E624100EE6B6C /* MUSINSAPriorTask */;
 			targetProxy = 007F3A23287E624200EE6B6C /* PBXContainerItemProxy */;
+		};
+		007F3A6C287FB35C00EE6B6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 007F3A01287E624100EE6B6C /* MUSINSAPriorTask */;
+			targetProxy = 007F3A6B287FB35C00EE6B6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -419,6 +513,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -473,6 +568,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -629,6 +725,52 @@
 			};
 			name = Release;
 		};
+		007F3A6E287FB35C00EE6B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Damagucci-Juice.EndToEndNetworkTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MUSINSAPriorTask.app/MUSINSAPriorTask";
+			};
+			name = Debug;
+		};
+		007F3A6F287FB35C00EE6B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Damagucci-Juice.EndToEndNetworkTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MUSINSAPriorTask.app/MUSINSAPriorTask";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -668,6 +810,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		007F3A6D287FB35C00EE6B6C /* Build configuration list for PBXNativeTarget "EndToEndNetworkTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				007F3A6E287FB35C00EE6B6C /* Debug */,
+				007F3A6F287FB35C00EE6B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -687,12 +838,12 @@
 				kind = branch;
 			};
 		};
-		007F3A42287E7ABF00EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */ = {
+		007F3A45287E86D900EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdisho/TinyNetworking.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -708,9 +859,9 @@
 			package = 007F3A3F287E6D3600EE6B6C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		007F3A43287E7ABF00EE6B6C /* TinyNetworking */ = {
+		007F3A46287E86D900EE6B6C /* TinyNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 007F3A42287E7ABF00EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */;
+			package = 007F3A45287E86D900EE6B6C /* XCRemoteSwiftPackageReference "TinyNetworking" */;
 			productName = TinyNetworking;
 		};
 /* End XCSwiftPackageProductDependency section */

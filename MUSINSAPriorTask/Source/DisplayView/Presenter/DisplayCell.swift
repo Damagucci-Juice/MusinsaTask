@@ -83,9 +83,6 @@ final class DisplayCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        [priceLabel, saleLabel, couponLabel].forEach {
-//            priceInformationStackView.addArrangedSubview($0)
-//        }
         [cellImageView, brandLabel, priceInformationStackView].forEach {
             contentView.addSubview($0)
         }

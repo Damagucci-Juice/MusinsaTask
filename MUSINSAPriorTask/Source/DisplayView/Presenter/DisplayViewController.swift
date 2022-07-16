@@ -10,7 +10,6 @@ import SnapKit
 
 final class DisplayViewController: UIViewController {
     
-//    let repository: DisplayRepository
     var repository: DisplayRepository = DisplayRepositoryImplement()
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -84,9 +83,24 @@ extension DisplayViewController: UICollectionViewDelegateFlowLayout, UICollectio
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: Int = Int((self.collectionView.frame.width - 6) / 3)
         let height: Int = 180
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        guard let urlString = (repository as? DisplayRepositoryImplement)?
+                .girdSection?
+                .contents
+                .goods?[indexPath.row]
+                .linkURL,
+              let url = URL(string: urlString)
+        else { return }
+        
+        UIApplication.shared.open(url)
     }
 }

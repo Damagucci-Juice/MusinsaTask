@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-//typealias Sections = [Datum]
-
 protocol Informable {
     associatedtype Item: Displayable
     func setUpInformations(_ product: Item)

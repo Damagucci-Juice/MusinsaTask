@@ -25,7 +25,8 @@ final class DisplayGoodCell: UICollectionViewCell {
     
     let brandLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .systemGray2
         label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
@@ -38,7 +39,7 @@ final class DisplayGoodCell: UICollectionViewCell {
     
     let saleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .bold)
+        label.font = .systemFont(ofSize: 11, weight: .bold)
         label.textColor = .systemRed
         label.text = "99"
         label.textAlignment = .right
@@ -49,7 +50,7 @@ final class DisplayGoodCell: UICollectionViewCell {
         let label = PaddingLabel()
         label.backgroundColor = .systemBlue
         label.textColor = .white
-        label.font = .systemFont(ofSize: 13, weight: .bold)
+        label.font = .systemFont(ofSize: 10, weight: .bold)
         label.textAlignment = .center
         label.text = "쿠폰"
         label.clipsToBounds = true
@@ -94,7 +95,7 @@ final class DisplayGoodCell: UICollectionViewCell {
         cellImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalTo(cellImageView.snp.width)
+            $0.height.equalTo(cellImageView.snp.width).multipliedBy(1.17)
         }
         
         brandLabel.snp.makeConstraints {

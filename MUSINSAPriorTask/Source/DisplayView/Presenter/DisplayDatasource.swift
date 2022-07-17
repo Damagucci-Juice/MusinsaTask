@@ -42,10 +42,15 @@ class DisplayDatasource: NSObject, UICollectionViewDataSource {
                     .dequeueReusableCell(
                         withReuseIdentifier: BannerCell.reuseIdentifier,
                         for: indexPath) as? BannerCell,
-                  let banner = model?[indexPath.section].contents.banners?[indexPath.row]
+                  let bannerSection = model?[indexPath.section].contents.banners
             else { return UICollectionViewCell() }
+            let bannerItem = bannerSection[indexPath.row]
             
-            cell.setUpInformations(banner)
+            cell.setUpInformations(bannerItem)
+            cell.updatePageNumber(
+                bannerSection.count,
+                indexPath.row + 1
+            )
             return cell
         case 1...2:
             guard let cell = collectionView

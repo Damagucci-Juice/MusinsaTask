@@ -60,7 +60,7 @@ enum DisplayLayoutFactory {
     static func createGridSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
-            heightDimension: .fractionalWidth(0.4)
+            heightDimension: .fractionalWidth(0.5)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)

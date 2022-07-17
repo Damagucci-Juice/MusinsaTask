@@ -22,6 +22,17 @@ class BannerCell: UICollectionViewCell {
         return imageView
     }()
     
+    let pageLabel: UILabel = {
+        let label = PaddingLabel()
+        label.text = "0 / 20"
+        label.clipsToBounds = true
+        label.font = .systemFont(ofSize: 13, weight: .thin)
+        label.backgroundColor = .systemGray
+        label.textColor = .systemGray6
+        label.layer.cornerRadius = label.intrinsicContentSize.height / 2
+        return label
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray6
@@ -55,7 +66,7 @@ class BannerCell: UICollectionViewCell {
         super.init(frame: frame)        
         contentView.addSubview(cellImageView)
 
-        [titleLabel, keywordLabel, descriptionLabel].forEach {
+        [titleLabel, keywordLabel, descriptionLabel, pageLabel].forEach {
             cellImageView.addSubview($0)
         }
     }
@@ -71,20 +82,25 @@ class BannerCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
-        keywordLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(16)
+        keywordLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(16)
         }
         
         
-        descriptionLabel.snp .makeConstraints { make in
-            make.leading.equalTo(keywordLabel)
-            make.bottom.equalToSuperview().inset(10)
+        descriptionLabel.snp .makeConstraints {
+            $0.leading.equalTo(keywordLabel)
+            $0.bottom.equalToSuperview().inset(10)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(keywordLabel)
-            make.bottom.equalTo(descriptionLabel.snp.top)
-            make.width.lessThanOrEqualToSuperview().multipliedBy(0.6)
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalTo(keywordLabel)
+            $0.bottom.equalTo(descriptionLabel.snp.top)
+            $0.width.lessThanOrEqualToSuperview().multipliedBy(0.6)
+        }
+        
+        pageLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(40)
         }
     }
     
@@ -94,6 +110,7 @@ class BannerCell: UICollectionViewCell {
         titleLabel.text = nil
         keywordLabel.text = nil
         descriptionLabel.text = nil
+        pageLabel.text = nil
     }
 }
 
@@ -108,6 +125,10 @@ extension BannerCell: Informable {
     func loadImage(_ urlString: String) {
         guard let url = URL(string: urlString) else { return }
         cellImageView.kf.setImage(with: url)
+    }
+    
+    func updatePageNumber(_ totalNumber: Int, _ currentPageNumber: Int) {
+        pageLabel.text = "\(currentPageNumber) /\(totalNumber)"
     }
     
     typealias Item = Banner

@@ -15,10 +15,6 @@ final class DisplayViewController: UIViewController {
     let collectionView: UICollectionView = {
         let layout = DisplayLayoutFactory.create()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(DisplayGoodCell.self,
-                                forCellWithReuseIdentifier: DisplayGoodCell.reuseIdentifier)
-        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseIdentifier)
-        collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.reuseIdentifier)
         collectionView.backgroundColor = .systemGray6
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -43,6 +39,15 @@ final class DisplayViewController: UIViewController {
     }
     
     private func attribute() {
+        collectionView.register(DisplayGoodCell.self,
+                                forCellWithReuseIdentifier: DisplayGoodCell.reuseIdentifier)
+        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseIdentifier)
+        collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.reuseIdentifier)
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: HeaderView.reuseIdentifier)
+        collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: FooterView.reuseIdentifier)
+        
         collectionView.dataSource = self.datasource
         collectionView.delegate = self
     }
@@ -62,12 +67,32 @@ final class DisplayViewController: UIViewController {
 }
 
 extension DisplayViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        return 
+        guard let selectedItem = datasource
+                .model?[indexPath.section]
+                .contents[indexPath.section]?[indexPath.row],
+              let url = URL(string: selectedItem.linkURL)
+        else { return }
+        
+        return UIApplication.shared.open(url)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = UIScreen.main.bounds.width
         return CGSize(width: width, height: width)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height / 10
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height / 10
+        return CGSize(width: width, height: height)
+    }
+    
 }

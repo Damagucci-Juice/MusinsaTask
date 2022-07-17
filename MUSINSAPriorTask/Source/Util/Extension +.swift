@@ -8,13 +8,14 @@
 import UIKit
 
 protocol Informable {
-    associatedtype Item: Displayable
+    associatedtype Item
     func setUpInformations(_ product: Item)
     func loadImage(_ urlString: String)
 }
 
 protocol Displayable {
-
+    var linkURL: String { get set }
+    var thumbnailURL: String { get set }
 }
 
 extension UICollectionReusableView {

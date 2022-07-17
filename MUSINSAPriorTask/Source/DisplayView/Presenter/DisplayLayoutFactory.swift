@@ -59,8 +59,8 @@ enum DisplayLayoutFactory {
     
     static func createGridSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
-            heightDimension: .fractionalWidth(0.5)
+            widthDimension: .fractionalWidth(1/3),
+            heightDimension: .fractionalWidth(1/2)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -73,17 +73,29 @@ enum DisplayLayoutFactory {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalWidth(0.5)
+            heightDimension: .fractionalWidth(1/2)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
-            subitem: item,
-            count: 3
+            subitems: [item]
         )
         
-        let section = NSCollectionLayoutSection(group: group)
+        let containerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
         
+        let containerGroup = NSCollectionLayoutGroup.vertical(layoutSize: containerGroupSize, subitems: [group, group])
+        
+        let section = NSCollectionLayoutSection(group: containerGroup)
+        
+        //MARK: - headerview, footerView
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionHeader, alignment: .top),
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        ]
         return section
     }
     
@@ -114,7 +126,14 @@ enum DisplayLayoutFactory {
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
-        
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionHeader, alignment: .top),
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        ]
         return section
     }
     
@@ -144,7 +163,14 @@ enum DisplayLayoutFactory {
         )
         
         let section = NSCollectionLayoutSection(group: group)
-        
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionHeader, alignment: .top),
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+                elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        ]
         return section
     }
 }

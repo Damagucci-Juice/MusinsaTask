@@ -14,24 +14,13 @@ class DisplayDatasource: NSObject, UICollectionViewDataSource {
     /// model[1] === GridGood
     /// model[2] === ScrollGood
     /// model[3] === Style
-    private var model: [Datum]?
+    private(set) var model: [Datum]?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = model else { return 0 }
-        switch section {
-        case 0: //Banner
-            guard let count = model[section].contents.banners?.count else { return 0 }
-            return count
-        case 1: //Grid
-            guard let count = model[section].contents.goods?.count else { return 0 }
-            return count
-        case 2: //Scroll
-            guard let count = model[section].contents.goods?.count else { return 0 }
-            return count
-        default: //Style
-            guard let count = model[section].contents.styles?.count else { return 0 }
-            return count
-        }
+
+        guard let count = model[section].contents[section]?.count else { return 0 }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -89,5 +78,28 @@ class DisplayDatasource: NSObject, UICollectionViewDataSource {
     private func isValid(indexPath: IndexPath) -> Bool {
         guard let model = model else { return false }
         return 0 <= indexPath.section && indexPath.section < model.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView,
+                  let header = model?[indexPath.section].header
+            else { assert(false, "여긴 호출 안될겁니다.. 아마?") }
+            
+            headerView.setUpInformations(header)
+            
+            return headerView
+        case UICollectionView.elementKindSectionFooter:
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterView.reuseIdentifier, for: indexPath) as? FooterView,
+                  let footer = model?[indexPath.section].footer
+            else { assert(false, "여긴 호출 안될겁니다.. 아마?") }
+            //TODO: - 
+            footerView.setUpInformations(footer)
+            return footerView
+        default:
+            assert(false, "여긴 호출 안될겁니다.. 아마?")
+        }
+        
     }
 }

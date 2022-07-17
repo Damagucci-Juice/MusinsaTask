@@ -104,7 +104,7 @@ final class DisplayGoodCell: UICollectionViewCell {
         priceInformationStackView.snp.makeConstraints {
             $0.leading.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(2)
             $0.top.equalTo(brandLabel.snp.bottom)
-            $0.bottom.equalToSuperview()
+//            $0.bottom.equalToSuperview().inset(3)
         }
     }
     
@@ -113,19 +113,19 @@ final class DisplayGoodCell: UICollectionViewCell {
         brandLabel.text = nil
         priceLabel.text = nil
         saleLabel.text = nil
-        couponLabel.isHidden = true
+        self.layoutIfNeeded()
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         guard let item = item else { return }
-        var informStackviewSubviews = [priceLabel, saleLabel]
-        if item.hasCoupon {
-            informStackviewSubviews.append(couponLabel)
-        }
+        
+        let informStackviewSubviews = item.hasCoupon ? [priceLabel, saleLabel, couponLabel] : [priceLabel, saleLabel]
+        couponLabel.isHidden = !item.hasCoupon ? true : false
         informStackviewSubviews.forEach {
             priceInformationStackView.addArrangedSubview($0)
         }
+        
     }
     
 }

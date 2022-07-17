@@ -13,9 +13,7 @@ final class DisplayViewController: UIViewController {
     var repository: DisplayRepository = DisplayRepositoryImplement()
     var datasource: DisplayDatasource = DisplayDatasource()
     let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        let layout = DisplayLayoutFactory.create()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(DisplayGoodCell.self,
                                 forCellWithReuseIdentifier: DisplayGoodCell.reuseIdentifier)

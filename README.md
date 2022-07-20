@@ -58,8 +58,8 @@
     
 * **해결방법**
 
-    * `prepareForReuse()`에서 `layoutIfNeed()`를 호출
-    * `layoutIfNeed()` 에서는 쿠폰 여부에 따라 스택뷰의 하위 뷰를 추가하는 로직을 담당
+    * `prepareForReuse()`에서 `layoutIfNeeded()`를 호출
+    * `layoutIfNeeded()` 에서는 쿠폰 여부에 따라 스택뷰의 하위 뷰를 추가하는 로직을 담당
 
 ### 상품 가격 정보 스택뷰에서 레이아웃 배치 문제
 
@@ -73,7 +73,7 @@
         *  "가격 / 할인율 / 쿠폰"
 
 * **해결방법**
-    * 상품 정보가 담긴 객체를 넘겨받을 때 `layoutIfNeed()` 를 호출
+    * 상품 정보가 담긴 객체를 넘겨받을 때 `layoutIfNeeded()` 를 호출
     * `hasCoupone` 속성의 값을 보고 스택뷰에 추가하는 뷰의 종류를 지정함
         * `hasCoupone` 값이 참이라면
             * "가격 / 할인율 / 쿠폰"
